@@ -9,3 +9,18 @@ C:\Users\Mecer\Desktop\SEN381\practical assignments work\Group 4 practical assig
 C:\Users\Mecer\Desktop\SEN381\practical assignments work\Group 4 practical assignment 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\Mecer\Desktop\SEN381\practical assignments work\Group 4 practical assignment 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\Mecer\Desktop\SEN381\practical assignments work\Group 4 practical assignment 1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmCallCenter.resources
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmMedicalDepartment.resources
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmPolicy_Client_Maintenance.resources
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmProductMaintenance.resources
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.frmProviderManagement.resources
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.LoginFrm.resources
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
