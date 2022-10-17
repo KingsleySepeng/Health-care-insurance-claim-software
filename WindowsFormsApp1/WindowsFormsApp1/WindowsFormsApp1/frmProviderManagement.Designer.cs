@@ -147,7 +147,8 @@
             this.groupBox3.Size = new System.Drawing.Size(970, 204);
             this.groupBox3.TabIndex = 41;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Client Details";
+            this.groupBox3.Text = "Provider Details";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // textBox3
             // 
