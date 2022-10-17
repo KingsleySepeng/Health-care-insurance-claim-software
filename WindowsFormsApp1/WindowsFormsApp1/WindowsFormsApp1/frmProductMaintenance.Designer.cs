@@ -275,6 +275,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1314, 722);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -285,7 +286,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmProductMaintenance";
             this.Text = "frmProductMaintenance";
             this.Load += new System.EventHandler(this.frmProductMaintenance_Load);
