@@ -54,6 +54,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(27, 111);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(1192, 292);
             this.dataGridView1.TabIndex = 5;
             // 
@@ -83,7 +84,7 @@
             this.label6.Location = new System.Drawing.Point(541, 41);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(121, 16);
+            this.label6.Size = new System.Drawing.Size(128, 17);
             this.label6.TabIndex = 14;
             this.label6.Text = "Place of Treatment";
             // 
@@ -104,7 +105,7 @@
             this.label5.Location = new System.Drawing.Point(50, 85);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 16);
+            this.label5.Size = new System.Drawing.Size(136, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Condition Treatment";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -125,7 +126,7 @@
             this.label3.Location = new System.Drawing.Point(50, 41);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(115, 16);
+            this.label3.Size = new System.Drawing.Size(119, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Medical Condition";
             // 
@@ -209,7 +210,7 @@
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label1.Location = new System.Drawing.Point(403, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(421, 45);
+            this.label1.Size = new System.Drawing.Size(527, 57);
             this.label1.TabIndex = 19;
             this.label1.Text = "Ukupholisa Call Center";
             // 
@@ -258,7 +259,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmCallCenter";
-            this.Text = "frmCallCenter";
+            this.Text = "y";
             this.Load += new System.EventHandler(this.frmCallCenter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);

@@ -26,5 +26,12 @@ namespace WindowsFormsApp1
         {
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            LoginFrm login = new LoginFrm();
+            login.Show();
+            this.Close();
+        }
     }
 }

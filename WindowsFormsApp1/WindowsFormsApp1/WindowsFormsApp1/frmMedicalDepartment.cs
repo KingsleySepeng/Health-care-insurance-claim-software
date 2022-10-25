@@ -19,7 +19,9 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            LoginFrm login = new LoginFrm();
+            login.Show();
+            this.Close();
         }
 
         private void frmMedicalDepartment_Load(object sender, EventArgs e)
