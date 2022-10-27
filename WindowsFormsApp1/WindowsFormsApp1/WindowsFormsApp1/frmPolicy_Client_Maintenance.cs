@@ -19,6 +19,14 @@ namespace WindowsFormsApp1
 
         private void button2_Click(object sender, EventArgs e)
         {
+            char[] firstChar = { 'h', 'g', 'k', 'l', 'j' };
+            string primaryKey = "j";
+            Random random = new Random();
+            for (int i = 0; i < 8; i++)
+            {
+                primaryKey += Convert.ToString(random.Next(9));
+            }
+            MessageBox.Show(primaryKey);
 
         }
 

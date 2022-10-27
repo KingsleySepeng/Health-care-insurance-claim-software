@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
 
             depString = Password.Substring(Password.Length - 2, 2);
             MessageBox.Show(depString);
-            for (int i = 0; i <= 6; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 if ((Username == Usernames[i]) & (Password == Passwords[i]))
                 {
@@ -88,7 +88,6 @@ namespace WindowsFormsApp1
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
-
         }
     }
 }
