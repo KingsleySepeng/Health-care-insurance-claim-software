@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
+    //level 1 just medication
+    //level 2 medication and some surgery
+    //level 3 All services
     public partial class frmMedicalDepartment : Form
     {
         public frmMedicalDepartment()
@@ -40,6 +43,11 @@ namespace WindowsFormsApp1
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

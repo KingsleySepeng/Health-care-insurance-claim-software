@@ -80,6 +80,7 @@
     <Compile Include="frmProviderManagement.Designer.cs">
       <DependentUpon>frmProviderManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs" />
     <Compile Include="LoginFrm.cs">
       <SubType>Form</SubType>
     </Compile>

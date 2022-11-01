@@ -74,7 +74,7 @@
             this.button3.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.button3.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button3.Location = new System.Drawing.Point(699, 542);
-            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button3.Margin = new System.Windows.Forms.Padding(2);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(164, 40);
             this.button3.TabIndex = 21;
@@ -90,7 +90,7 @@
             this.label1.Location = new System.Drawing.Point(53, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(723, 57);
+            this.label1.Size = new System.Drawing.Size(577, 45);
             this.label1.TabIndex = 22;
             this.label1.Text = "Ukupholisa Medical Department";
             // 
@@ -103,9 +103,9 @@
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Location = new System.Drawing.Point(79, 374);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(418, 197);
             this.groupBox1.TabIndex = 23;
             this.groupBox1.TabStop = false;
@@ -133,7 +133,7 @@
             this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label6.Location = new System.Drawing.Point(38, 103);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 15);
+            this.label6.Size = new System.Drawing.Size(102, 13);
             this.label6.TabIndex = 25;
             this.label6.Text = "Condition Treatment";
             // 
@@ -144,7 +144,7 @@
             this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label3.Location = new System.Drawing.Point(40, 36);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 15);
+            this.label3.Size = new System.Drawing.Size(82, 13);
             this.label3.TabIndex = 21;
             this.label3.Text = "Condition Name";
             // 
@@ -162,7 +162,7 @@
             this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label5.Location = new System.Drawing.Point(40, 71);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 15);
+            this.label5.Size = new System.Drawing.Size(75, 13);
             this.label5.TabIndex = 23;
             this.label5.Text = "Medical Name";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -180,6 +180,7 @@
             this.button2.TabIndex = 31;
             this.button2.Text = "Add Medical Condition";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button4
             // 

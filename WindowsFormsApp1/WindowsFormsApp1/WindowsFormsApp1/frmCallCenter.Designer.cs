@@ -146,7 +146,6 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(181, 36);
             this.button8.TabIndex = 16;
-            this.button8.Text = "start call";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -160,7 +159,6 @@
             this.button9.Name = "button9";
             this.button9.Size = new System.Drawing.Size(190, 36);
             this.button9.TabIndex = 17;
-            this.button9.Text = "End call";
             this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
@@ -207,7 +205,7 @@
             this.button5.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold);
             this.button5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.button5.Location = new System.Drawing.Point(865, 579);
-            this.button5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(164, 40);
             this.button5.TabIndex = 47;

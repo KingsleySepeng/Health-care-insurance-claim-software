@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
     internal class CallCenter:DataHandler
     {
-        DateTime StartCall;
-        DateTime EndCall;
         String ClientID;
         String MedicalCondition;
         String Treatment;
 
-        public DateTime StartCall1 { get => StartCall; set => StartCall = value; }
-        public DateTime EndCall1 { get => EndCall; set => EndCall = value; }
         public string ClientID1 { get => ClientID; set => ClientID = value; }
         public string MedicalCondition1 { get => MedicalCondition; set => MedicalCondition = value; }
         public string Treatment1 { get => Treatment; set => Treatment = value; }
@@ -38,7 +35,15 @@ namespace WindowsFormsApp1
         }
 
         public void Search() { }
-        public void StartEndCall() { }
+        public DateTime StartCall()
+        {
+            return DateTime.Now;
+        }
+
+        public void EndCall(DateTime startTime)
+        {
+            MessageBox.Show(DateTime.Now.Subtract(startTime).ToString());
+        }
 
         public override void update()
         {

@@ -12,6 +12,8 @@ namespace WindowsFormsApp1
 {
     public partial class frmCallCenter : Form
     {
+        CallCenter callcenter = new CallCenter();
+        DateTime startTime;
         public frmCallCenter()
         {
             InitializeComponent();
@@ -25,11 +27,13 @@ namespace WindowsFormsApp1
         private void button9_Click(object sender, EventArgs e)
         {
 
+            callcenter.EndCall(startTime);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
 
+            startTime = callcenter.StartCall();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
