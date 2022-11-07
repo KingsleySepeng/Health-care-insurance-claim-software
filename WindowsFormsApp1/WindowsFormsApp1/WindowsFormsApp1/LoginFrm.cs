@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,12 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class LoginFrm : Form
     {
-        Login login = new Login();
-        frmCallCenter callCenter = new frmCallCenter();
-        frmMedicalDepartment medicalDepartment = new frmMedicalDepartment();
-        frmPolicy_Client_Maintenance policyClient = new frmPolicy_Client_Maintenance();
-        frmProductMaintenance productMaintenance = new frmProductMaintenance();
-        frmProviderManagement providerManagement = new frmProviderManagement();
+        DataHandler dh = new Login();
         public LoginFrm()
         {
             InitializeComponent();
@@ -30,41 +26,67 @@ namespace WindowsFormsApp1
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string Username = textBox2.Text;
-            string Password = textBox3.Text;
-            string departmentCode = Password.Substring(Password.Length - 2, 2);
+            string Username = txtUsername.Text;
+            string Password = txtPassword.Text;
 
-            if (login.CheckUserDetails(Username, Password))
+            if((Password == "") || (Password.Length != 6))
             {
-                if (departmentCode == "cc")
-                {
-                    callCenter.Show();
-                }
-                else if (departmentCode == "md")
-                {
-                    medicalDepartment.Show();
-                }
-                else if (departmentCode == "pr")
-                {
-                    providerManagement.Show();
-                }
-                else if (departmentCode == "pm")
-                {
-                    productMaintenance.Show();
-                }
-                else if (departmentCode == "pc")
-                {
-                    policyClient.Show();
-                }
-                this.Hide();
+                MessageBox.Show("Warning", "Invalid passwrd input", MessageBoxButtons.OK);
+                txtUsername.Clear();
+                txtPassword.Clear();
             }
-            
+            else
+            {
+                string depCode = Password.Substring(4, 2);
+                if (dh.login(Username, Password))
+                {
+                    if (depCode == "pm")
+                    {
+                        frmProductMaintenance pm = new frmProductMaintenance();
+                        pm.Show();
+
+                    }
+                    else if (depCode == "cc")
+                    {
+                        frmCallCenter cc = new frmCallCenter();
+                        cc.Show();
+                    }
+                    else if (depCode == "pc")
+                    {
+                        frmPolicy_Client_Maintenance pc = new frmPolicy_Client_Maintenance();
+                        pc.Show();
+                    }
+                    else if (depCode == "md")
+                    {
+                        frmMedicalDepartment md = new frmMedicalDepartment();
+                        md.Show();
+                    }
+                    else if (depCode == "pr")
+                    {
+                        frmProviderManagement pr = new frmProviderManagement();
+                        pr.Show();
+                    }
+
+                    this.Hide();
+
+                }
+                else
+                {
+                    txtUsername.Clear();
+                    txtPassword.Clear();
+                }
+            }
         }
             
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

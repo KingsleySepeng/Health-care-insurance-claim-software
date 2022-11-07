@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    class Login
+    class Login: DataHandler
     {
         public bool CheckUserDetails(string Username, string Password)
         {
@@ -31,6 +31,12 @@ namespace WindowsFormsApp1
 
             return userDetails;
         }
+
+        public override void Create()
+        {
+            throw new NotImplementedException();
+        }
+
         public void OpenForm(string departmentCode)
         {
             

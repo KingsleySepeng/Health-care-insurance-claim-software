@@ -14,9 +14,11 @@ namespace WindowsFormsApp1
     {
         CallCenter callcenter = new CallCenter();
         DateTime startTime;
+        DataHandler dh = new CallCenter();
         public frmCallCenter()
         {
             InitializeComponent();
+            dataGridView1.DataSource = dh.Display("Claim");
         }
 
         private void frmCallCenter_Load(object sender, EventArgs e)
@@ -28,11 +30,11 @@ namespace WindowsFormsApp1
         {
 
             callcenter.EndCall(startTime);
+            
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-
             startTime = callcenter.StartCall();
         }
 
@@ -56,6 +58,16 @@ namespace WindowsFormsApp1
             LoginFrm login = new LoginFrm();
             login.Show();
             this.Hide();
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

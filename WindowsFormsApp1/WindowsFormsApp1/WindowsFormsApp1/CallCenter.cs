@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,39 +19,22 @@ namespace WindowsFormsApp1
         public string MedicalCondition1 { get => MedicalCondition; set => MedicalCondition = value; }
         public string Treatment1 { get => Treatment; set => Treatment = value; }
 
-        public override void Create()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Login() { }
-
-        public override void read()
-        {
-            throw new NotImplementedException();
-        }
 
         public void Search() { }
         public DateTime StartCall()
         {
+            MessageBox.Show("Call recording started...");
             return DateTime.Now;
         }
 
         public void EndCall(DateTime startTime)
         {
-            MessageBox.Show(DateTime.Now.Subtract(startTime).ToString());
+            MessageBox.Show("Call ended.\nTotal call length: "+DateTime.Now.Subtract(startTime).ToString("hh\\:mm\\:ss"));
         }
 
-        public override void update()
+        public override void Create()
         {
             throw new NotImplementedException();
         }
-      
-
     }
 }

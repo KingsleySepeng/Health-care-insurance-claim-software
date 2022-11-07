@@ -1,42 +1,100 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace WindowsFormsApp1
 {
     internal class ProductMaintenance:DataHandler
     {
-        float MoneySpent;
-        float MoneyEarned;
-        int NumberClients;
-        float profit;
+        float basicPolicyPrice = 1200;
+        float middlePolicyPrice = 2500;
+        float premiumPolicyPrice = 6000;
 
-        public float MoneySpent1 { get => MoneySpent; set => MoneySpent = value; }
-        public float MoneyEarned1 { get => MoneyEarned; set => MoneyEarned = value; }
-        public int NumberClients1 { get => NumberClients; set => NumberClients = value; }
-        public float Profit { get => profit; set => profit = value; }
+        public float MiddlePolicyPrice { get => middlePolicyPrice; set => middlePolicyPrice = value; }
+        public float BasicPolicyPrice { get => basicPolicyPrice; set => basicPolicyPrice = value; }
+        public float PremiumPolicyPrice { get => premiumPolicyPrice; set => premiumPolicyPrice = value; }
 
         public override void Create()
         {
             throw new NotImplementedException();
         }
 
-        public override void delete()
+        public void Create(string tableName, string ID, float PolicyPrice, string PolicyStartTime, string PolicyEndTime, string PolicyName, string PolicyType)
         {
-            throw new NotImplementedException();
+            using (SqlConnection sqlCon = new SqlConnection(Conn))
+            {
+                SqlCommand sqlComm = new SqlCommand();
+                sqlComm.CommandType = CommandType.Text;
+                sqlComm.CommandText = "INSERT INTO " + tableName + " (Policy_Id, Policy_Title, Contract_Type, Policy_Prices, Start_Date, End_Date)  VALUES ('" + ID + "', '" + PolicyName + "', '" + PolicyType + "', '" + PolicyPrice + "', '" + PolicyStartTime + "', '" + PolicyEndTime + "')";
+                sqlComm.Connection = sqlCon;
+
+                sqlCon.Open();
+                sqlComm.ExecuteNonQuery();
+                sqlCon.Close();
+            }
         }
 
-        public override void read()
+        public string CreateID(string date, string contractType, string importance)
         {
-            throw new NotImplementedException();
+            string ID = contractType + importance;
+            Random random = new Random();
+            for(int i = 0; i< 6; i++)
+            {
+                ID += random.Next(9).ToString();
+            }
+
+            return ID;
         }
 
-        public override void update()
+        public double calcPolicyPrice(float totalCost, string careLevel)
         {
-            throw new NotImplementedException();
+            double finalCost = totalCost;
+            if(careLevel == null)
+            {
+
+            }
+            else
+            {
+                if(careLevel == "D")
+                {
+                    finalCost *= 1.05;
+                }
+                else if(careLevel == "C")
+                {
+                    finalCost *= 1.12;
+                }
+                else if (careLevel == "B")
+                {
+                    finalCost *= 1.25;
+                }
+                else if (careLevel == "A")
+                {
+                    finalCost *= 1.3;
+                }
+            }
+            return finalCost;
         }
-  
+        /*
+
+                public override void delete()
+                {
+                    throw new NotImplementedException();
+                }
+
+                public override void read()
+                {
+                    throw new NotImplementedException();
+                }
+
+                public override void update()
+                {
+                    throw new NotImplementedException();
+                }*/
+
     }
 }

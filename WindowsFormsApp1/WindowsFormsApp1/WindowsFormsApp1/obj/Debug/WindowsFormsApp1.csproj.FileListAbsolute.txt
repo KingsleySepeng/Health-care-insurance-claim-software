@@ -24,3 +24,4 @@ C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFo
 C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
 C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
 C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\Aluta Jakuja\Downloads\Ukupholisa Healthcare\WindowsFormsApp1\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.SuggestedBindingRedirects.cache

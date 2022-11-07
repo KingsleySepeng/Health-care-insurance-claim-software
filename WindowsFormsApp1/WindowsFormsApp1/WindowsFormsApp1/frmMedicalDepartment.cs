@@ -15,16 +15,21 @@ namespace WindowsFormsApp1
     //level 3 All services
     public partial class frmMedicalDepartment : Form
     {
+        DataHandler dh = new MedicalDepartment();
+        MedicalDepartment md = new MedicalDepartment();
+        string conditionName, conditionCode, medicalName;
+        string treatmentName, treatmentCost, treatmentType, policyID;
         public frmMedicalDepartment()
         {
             InitializeComponent();
+            dataGridView1.DataSource = dh.Display("Medical_Condition");
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             LoginFrm login = new LoginFrm();
             login.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void frmMedicalDepartment_Load(object sender, EventArgs e)
@@ -48,6 +53,37 @@ namespace WindowsFormsApp1
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+            bool treatment = true;
+            conditionName = txtConditionName.Text;
+            conditionCode = txtMedicalCode.Text;
+            medicalName = txtDescription.Text;
+
+            md.Create("Medical_Condition", conditionName, medicalName, conditionCode);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = dh.Display("Medical_Condition");
+            btnAddConditionTreatment.Text = "Add Medical Conditions";
+            grpMedicalConditions.Visible = true;
+            grpTreatments.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView1.DataSource = dh.Display("Treatments");
+            btnAddConditionTreatment.Text = "Add Treatments";
+            grpTreatments.Visible = true;
+            grpMedicalConditions.Visible = false;
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
         {
 
         }
