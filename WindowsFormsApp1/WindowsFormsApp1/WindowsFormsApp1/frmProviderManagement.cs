@@ -78,5 +78,10 @@ namespace WindowsFormsApp1
             pr.Create("Provider_table", txtName.Text, txtTelephone.Text, txtAddress.Text, comboBox1.Text, txtStartDate.Text, txtEndDate.Text);
             dataGridView1.DataSource = dh.Display("Provider_table");
         }
+
+        private void txtStartDate_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

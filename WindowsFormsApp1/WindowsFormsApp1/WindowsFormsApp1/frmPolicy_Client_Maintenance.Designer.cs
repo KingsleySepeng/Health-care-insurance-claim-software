@@ -188,7 +188,6 @@
             // 
             // grpDetails
             // 
-            this.grpDetails.Controls.Add(this.grpDependents);
             this.grpDetails.Controls.Add(this.label8);
             this.grpDetails.Controls.Add(this.cmbFamilyPlan);
             this.grpDetails.Controls.Add(this.button1);
@@ -222,7 +221,7 @@
             this.grpDependents.Controls.Add(this.txtDepSurname);
             this.grpDependents.Controls.Add(this.label13);
             this.grpDependents.Controls.Add(this.txtDepName);
-            this.grpDependents.Location = new System.Drawing.Point(0, 0);
+            this.grpDependents.Location = new System.Drawing.Point(31, 246);
             this.grpDependents.Name = "grpDependents";
             this.grpDependents.Size = new System.Drawing.Size(778, 166);
             this.grpDependents.TabIndex = 44;
@@ -495,6 +494,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(974, 596);
+            this.Controls.Add(this.grpDependents);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.txtMontlyFee);
             this.Controls.Add(this.label7);

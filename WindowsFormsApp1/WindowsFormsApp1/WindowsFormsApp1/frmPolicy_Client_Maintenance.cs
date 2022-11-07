@@ -146,10 +146,11 @@ namespace WindowsFormsApp1
             {
                 grpDetails.Visible = false;
                 grpDependents.Visible = true;
+                familyPlan = true;
             }
             else
             {
-
+                familyPlan = false;
             }
         }
 

@@ -162,6 +162,7 @@
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(192, 20);
             this.txtStartDate.TabIndex = 26;
+            this.txtStartDate.TextChanged += new System.EventHandler(this.txtStartDate_TextChanged);
             // 
             // label2
             // 
