@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
 
         public DataHandler() { }
 
-        string conn = "Data Source=VISIONARY-VJAE\\SQLEXPRESS02;Initial Catalog=Ukupholisa_Healthcare_DB;Integrated Security=True";
+        string conn = "Data Source=VISIONARY-VJAE\\SQLEXPRESS02;Initial Catalog=Ukupholisa_Healthcare_DB_v3;Integrated Security=True";
 
         public string Conn { get => conn; set => conn = value; }
 
@@ -136,6 +136,94 @@ namespace WindowsFormsApp1
             }
 
             return policies;
+        }
+
+        public List<string> returnProvider()
+        {
+            List<string> providers = new List<string>();
+            int counter = 0;
+            using (SqlConnection sqlCon = new SqlConnection(Conn))
+            {
+                sqlCon.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT ProviderId from Provider_table";
+                cmd.Connection = sqlCon;
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    providers.Add(dr[0].ToString());
+                }
+            }
+
+            return providers;
+        }
+
+        public List<string> returnConditions()
+        {
+            List<string> conditions = new List<string>();
+            int counter = 0;
+            using (SqlConnection sqlCon = new SqlConnection(Conn))
+            {
+                sqlCon.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT Condition_ID from Medical_Condition";
+                cmd.Connection = sqlCon;
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    conditions.Add(dr[0].ToString());
+                }
+            }
+
+            return conditions;
+        }
+
+        public List<string> returnConditionNames()
+        {
+            List<string> conditions = new List<string>();
+            int counter = 0;
+            using (SqlConnection sqlCon = new SqlConnection(Conn))
+            {
+                sqlCon.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT Medical_Condition from Medical_Condition";
+                cmd.Connection = sqlCon;
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    conditions.Add(dr[0].ToString());
+                }
+            }
+
+            return conditions;
+        }
+
+        public List<string> returnTreatments()
+        {
+            List<string> treatments = new List<string>();
+            int counter = 0;
+            using (SqlConnection sqlCon = new SqlConnection(Conn))
+            {
+                sqlCon.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = "SELECT Treatment_Name from Treatments";
+                cmd.Connection = sqlCon;
+
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    treatments.Add(dr[0].ToString());
+                }
+            }
+
+            return treatments;
         }
 
         public abstract void Create();

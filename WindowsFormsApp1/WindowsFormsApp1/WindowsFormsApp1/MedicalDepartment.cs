@@ -12,8 +12,11 @@ namespace WindowsFormsApp1
 {
     internal class MedicalDepartment : DataHandler
     {
-        String MedicalCondition;
-        String Treatment;
+        private string tablename = "Medical_Condition";
+        private string tblTreatments = "Treatments";
+
+        public string TblTreatments { get => tblTreatments; set => tblTreatments = value; }
+        public string Tablename { get => tablename; set => tablename = value; }
 
         public override void Create()
         {
@@ -34,20 +37,21 @@ namespace WindowsFormsApp1
                 sqlCon.Close();
             }
         }
-        /*
-public override void delete()
-{
-   throw new NotImplementedException();
-}
 
-public override void read()
-{
-   throw new NotImplementedException();
-}
+        public void Create(string tableName, string tName, float tCost, string tPolicy, int tLengt, string tConId, string tProId)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(Conn))
+            {
+                SqlCommand sqlComm = new SqlCommand();
+                sqlComm.CommandType = CommandType.Text;
+                sqlComm.CommandText = "INSERT INTO " + tableName + " (Treatment, Cost_Of_Treatment, Policy_ID, Treatment_Length_in_Days, Condition_ID, ProviderId)  VALUES ('" + tName + "', '" + tCost + "', '" + tPolicy + "', '" + tLengt + "', '" + tConId + "', '" + tProId + "')";
+                sqlComm.Connection = sqlCon;
 
-public override void update()
-{
-   throw new NotImplementedException();
-}*/
+                sqlCon.Open();
+                sqlComm.ExecuteNonQuery();
+                sqlCon.Close();
+            }
+        }
+        
     }
 }

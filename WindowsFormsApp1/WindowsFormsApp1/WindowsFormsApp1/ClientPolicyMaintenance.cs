@@ -10,40 +10,25 @@ using System.Xml.Linq;
 namespace WindowsFormsApp1
 {
     internal class ClientPolicyMaintenance:DataHandler
-    {/*
-        public ClientPolicyMaintenance(){ }
+    {
+        private string tableName = "Policy_Holders";
+        private string subHolders = "Sub_Holders";
+
+        public string SubHolders { get => subHolders; set => subHolders = value; }
+        public string TableName { get => tableName; set => tableName = value; }
 
         public override void Create()
         {
             throw new NotImplementedException();
         }
 
-        public override void delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void read()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void update()
-        {
-            throw new NotImplementedException();
-        }*/
-        public override void Create()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Create(string tableName, string Id, string hName, string hSurname, string hTelephone, string hAddress, string hPolicyType, float monthlyFee, string FamilyPlan)
+        public void Create(string tableName, string Id, string hName, string hSurname, string hTelephone, string hAddress, string hPolicyType, float monthlyFee, string FamilyPlan, string Email)
         {
             using (SqlConnection sqlCon = new SqlConnection(Conn))
             {
                 SqlCommand sqlComm = new SqlCommand();
                 sqlComm.CommandType = CommandType.Text;
-                sqlComm.CommandText = "INSERT INTO " + tableName + " (PolicyHolder_ID, Name, Surname, Telephone, Address, Policy_Id, Monthly_Premium, Family_Plan)  VALUES ('" + Id + "', '" + hName + "', '" + hSurname + "', '" + hTelephone + "', '" + hAddress + "', '" + hPolicyType + "', '" + monthlyFee + "', '" + FamilyPlan + "')";
+                sqlComm.CommandText = "INSERT INTO " + tableName + " (PolicyHolder_ID, Name, Surname, Telephone, Address, Policy_Id, Monthly_Premium, Family_Plan, Email_Address)  VALUES ('" + Id + "', '" + hName + "', '" + hSurname + "', '" + hTelephone + "', '" + hAddress + "', '" + hPolicyType + "', '" + monthlyFee + "', '" + FamilyPlan + "', '" + Email + "')";
                 sqlComm.Connection = sqlCon;
 
                 sqlCon.Open();
@@ -101,6 +86,30 @@ namespace WindowsFormsApp1
             }
 
             return fee;
+        }
+
+        public void Update(string tableName, string tID, string columnName, string newValue, bool mainTbl)
+        {
+            string cmdText;
+            if(mainTbl == false)
+            {
+                cmdText = "UPDATE " + tableName + " SET " + columnName + " = '" + newValue + "' WHERE PolicyHolder_ID = '" + tID + "'";
+            }
+            else
+            {
+                cmdText = "UPDATE " + tableName + " SET " + columnName + " = '" + newValue + "' WHERE Sub_Holder_ID = '" + tID + "'";
+            }
+            using (SqlConnection sqlCon = new SqlConnection(Conn))
+            {
+                SqlCommand sqlComm = new SqlCommand();
+                sqlComm.CommandType = CommandType.Text;
+                sqlComm.CommandText = cmdText;
+                sqlComm.Connection = sqlCon;
+
+                sqlCon.Open();
+                sqlComm.ExecuteNonQuery();
+                sqlCon.Close();
+            }
         }
 
 

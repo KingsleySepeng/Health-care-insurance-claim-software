@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    //level 1 just medication
-    //level 2 medication and some surgery
-    //level 3 All services
     public partial class frmMedicalDepartment : Form
     {
         DataHandler dh = new MedicalDepartment();
         MedicalDepartment md = new MedicalDepartment();
-        string conditionName, conditionCode, medicalName;
-        string treatmentName, treatmentCost, treatmentType, policyID;
+        string columnName;
+        bool treatment = false;
         public frmMedicalDepartment()
         {
             InitializeComponent();
-            dataGridView1.DataSource = dh.Display("Medical_Condition");
+            dataGridView1.DataSource = dh.Display(md.Tablename);
+            cmbPolicy.DataSource = dh.returnPolicies();
+            cmbProvider.DataSource = dh.returnProvider();
+            cmbConditions.DataSource = dh.returnConditions();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -47,35 +47,95 @@ namespace WindowsFormsApp1
 
         }
 
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            if (treatment)
+            {
+                dataGridView1.DataSource = dh.Display(md.TblTreatments);
+            }
+            else
+            {
+                dataGridView1.DataSource = dh.Display(md.Tablename);
+            }
+            btnReset.Visible = false;
+            txtSearch.Clear();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            columnName = dataGridView1.Columns[0].Name;
+            btnReset.Visible = true;
+            if (treatment)
+            {
+                dataGridView1.DataSource = dh.Search(md.TblTreatments, txtSearch.Text, columnName);
+            }
+            else
+            {
+                dataGridView1.DataSource = dh.Search(md.Tablename, txtSearch.Text, columnName);
+            }
+        }
+
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
 
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            md.Create(md.Tablename, txtConditionName.Text, txtDescription.Text, txtMedicalCode.Text);
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
-            bool treatment = true;
-            conditionName = txtConditionName.Text;
-            conditionCode = txtMedicalCode.Text;
-            medicalName = txtDescription.Text;
-
-            md.Create("Medical_Condition", conditionName, medicalName, conditionCode);
+            if (treatment == false)
+            {
+                md.Create(md.Tablename, txtConditionName.Text, txtDescription.Text, txtMedicalCode.Text);
+                dataGridView1.DataSource = dh.Display(md.Tablename);
+                txtConditionName.Clear();
+                txtDescription.Clear();
+                txtMedicalCode.Clear();
+                
+            }
+            else
+            {
+                md.Create(md.TblTreatments, txtTreatmentName.Text, Convert.ToSingle(txtCost.Text), cmbPolicy.Text, Convert.ToInt32(txtNumDays.Text), cmbConditions.Text, cmbProvider.Text);
+                dataGridView1.DataSource = dh.Display(md.TblTreatments);
+                txtNumDays.Clear();
+                txtTreatmentName.Clear();
+                txtCost.Clear();
+                cmbProvider.Text = "";
+                cmbDescription.Text = "";
+                cmbConditions.Text = "";
+                cmbPolicy.Text = "";
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = dh.Display("Medical_Condition");
-            btnAddConditionTreatment.Text = "Add Medical Conditions";
-            grpMedicalConditions.Visible = true;
-            grpTreatments.Visible = false;
+            if (treatment)
+            {
+                treatment = false;
+                dataGridView1.DataSource = dh.Display(md.Tablename);
+                btnSwitch.Text = "View Medical Conditions";
+                btnAddConditionTreatment.Text = "Add Medical Condition";
+                grpMedicalConditions.Visible = true;
+                grpTreatments.Visible = false;
+            }
+            else
+            {
+                treatment = true;
+                dataGridView1.DataSource = dh.Display(md.TblTreatments);
+                btnSwitch.Text = "View Treatments";
+                btnAddConditionTreatment.Text = "Add Treatments";
+                grpMedicalConditions.Visible = false;
+                grpTreatments.Visible = true;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = dh.Display("Treatments");
+            dataGridView1.DataSource = dh.Display(md.TblTreatments);
             btnAddConditionTreatment.Text = "Add Treatments";
-            grpTreatments.Visible = true;
-            grpMedicalConditions.Visible = false;
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)

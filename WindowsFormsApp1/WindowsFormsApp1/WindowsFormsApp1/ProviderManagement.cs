@@ -11,9 +11,9 @@ namespace WindowsFormsApp1
 {
     internal class ProviderManagement:DataHandler
     {
-        String Status;
+        private string tableName = "Provider_table";
 
-        public string Status1 { get => Status; set => Status = value; }
+        public string TableName { get => tableName; set => tableName = value; }
 
         public override void Create()
         {
@@ -50,26 +50,21 @@ namespace WindowsFormsApp1
             }
             return currentDate.Subtract(endDate);
         }
-        /*
-public override void Create()
-{
-   throw new NotImplementedException();
-}
 
-public override void delete()
-{
-   throw new NotImplementedException();
-}
+        public void Update(string tableName, string tID, string columnName, string newValue)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(Conn))
+            {
+                SqlCommand sqlComm = new SqlCommand();
+                sqlComm.CommandType = CommandType.Text;
+                sqlComm.CommandText = "UPDATE " + tableName + " SET " + columnName + " = '" + newValue + "' WHERE ProviderId = '" + tID + "'";
+                sqlComm.Connection = sqlCon;
 
-public override void read()
-{
-   throw new NotImplementedException();
-}
-
-public override void update()
-{
-   throw new NotImplementedException();
-}*/
+                sqlCon.Open();
+                sqlComm.ExecuteNonQuery();
+                sqlCon.Close();
+            }
+        }
 
     }
 }

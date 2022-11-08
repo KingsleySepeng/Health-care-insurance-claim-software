@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,7 @@ namespace WindowsFormsApp1
         ProductMaintenance pr = new ProductMaintenance();
         float totalCost;
         bool Pressed = false;
+        string columnName, tID, newValue;
         public frmProductMaintenance()
         {
             InitializeComponent();
@@ -89,7 +91,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            pr.Update(pr.tableName, tID, columnName, newValue);
         }
 
         private void cmbPolicyType_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,6 +110,14 @@ namespace WindowsFormsApp1
             }
             txtCost.Text = totalCost.ToString();
             cmbCareLevel.Enabled = true;   
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            tID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            int indx = dataGridView1.CurrentCell.ColumnIndex;
+            columnName = dataGridView1.Columns[indx].Name;
+            newValue = dataGridView1.CurrentCell.Value.ToString();
         }
 
         private void cmbCareLevel_SelectedIndexChanged(object sender, EventArgs e)

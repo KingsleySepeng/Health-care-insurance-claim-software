@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.grpTreatments = new System.Windows.Forms.GroupBox();
+            this.cmbConditions = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbProvider = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbPolicy = new System.Windows.Forms.ComboBox();
+            this.txtNumDays = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.cmbDescription = new System.Windows.Forms.ComboBox();
-            this.txtPolicyID = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtCost = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -42,7 +47,10 @@
             this.txtTreatmentName = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnAddConditionTreatment = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnSwitch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             this.grpMedicalConditions = new System.Windows.Forms.GroupBox();
             this.txtMedicalCode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -50,8 +58,6 @@
             this.txtConditionName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtNumDays = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpTreatments.SuspendLayout();
             this.grpMedicalConditions.SuspendLayout();
@@ -66,21 +72,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(772, 212);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(694, 313);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "View Treatments";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -103,23 +94,27 @@
             this.label1.Location = new System.Drawing.Point(53, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(577, 45);
+            this.label1.Size = new System.Drawing.Size(723, 57);
             this.label1.TabIndex = 22;
             this.label1.Text = "Ukupholisa Medical Department";
             // 
             // grpTreatments
             // 
+            this.grpTreatments.Controls.Add(this.cmbConditions);
+            this.grpTreatments.Controls.Add(this.label11);
+            this.grpTreatments.Controls.Add(this.cmbProvider);
+            this.grpTreatments.Controls.Add(this.label9);
+            this.grpTreatments.Controls.Add(this.cmbPolicy);
             this.grpTreatments.Controls.Add(this.txtNumDays);
             this.grpTreatments.Controls.Add(this.label4);
             this.grpTreatments.Controls.Add(this.cmbDescription);
-            this.grpTreatments.Controls.Add(this.txtPolicyID);
             this.grpTreatments.Controls.Add(this.label10);
             this.grpTreatments.Controls.Add(this.txtCost);
             this.grpTreatments.Controls.Add(this.label6);
             this.grpTreatments.Controls.Add(this.label3);
             this.grpTreatments.Controls.Add(this.txtTreatmentName);
             this.grpTreatments.Controls.Add(this.label5);
-            this.grpTreatments.Location = new System.Drawing.Point(79, 373);
+            this.grpTreatments.Location = new System.Drawing.Point(32, 384);
             this.grpTreatments.Margin = new System.Windows.Forms.Padding(2);
             this.grpTreatments.Name = "grpTreatments";
             this.grpTreatments.Padding = new System.Windows.Forms.Padding(2);
@@ -127,36 +122,107 @@
             this.grpTreatments.TabIndex = 23;
             this.grpTreatments.TabStop = false;
             this.grpTreatments.Text = "Treatment Details";
+            this.grpTreatments.Visible = false;
             this.grpTreatments.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // cmbConditions
+            // 
+            this.cmbConditions.FormattingEnabled = true;
+            this.cmbConditions.Items.AddRange(new object[] {
+            "Surgery",
+            "Medicine",
+            "Radiation"});
+            this.cmbConditions.Location = new System.Drawing.Point(523, 89);
+            this.cmbConditions.Name = "cmbConditions";
+            this.cmbConditions.Size = new System.Drawing.Size(192, 21);
+            this.cmbConditions.TabIndex = 38;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.White;
+            this.label11.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label11.Location = new System.Drawing.Point(459, 92);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 15);
+            this.label11.TabIndex = 37;
+            this.label11.Text = "Condition";
+            // 
+            // cmbProvider
+            // 
+            this.cmbProvider.FormattingEnabled = true;
+            this.cmbProvider.Items.AddRange(new object[] {
+            "Surgery",
+            "Medicine",
+            "Radiation"});
+            this.cmbProvider.Location = new System.Drawing.Point(523, 57);
+            this.cmbProvider.Name = "cmbProvider";
+            this.cmbProvider.Size = new System.Drawing.Size(192, 21);
+            this.cmbProvider.TabIndex = 36;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.White;
+            this.label9.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label9.Location = new System.Drawing.Point(466, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 15);
+            this.label9.TabIndex = 35;
+            this.label9.Text = "Provider";
+            // 
+            // cmbPolicy
+            // 
+            this.cmbPolicy.FormattingEnabled = true;
+            this.cmbPolicy.Items.AddRange(new object[] {
+            "Surgery",
+            "Medicine",
+            "Radiation"});
+            this.cmbPolicy.Location = new System.Drawing.Point(523, 20);
+            this.cmbPolicy.Name = "cmbPolicy";
+            this.cmbPolicy.Size = new System.Drawing.Size(192, 21);
+            this.cmbPolicy.TabIndex = 34;
+            // 
+            // txtNumDays
+            // 
+            this.txtNumDays.Location = new System.Drawing.Point(147, 18);
+            this.txtNumDays.Name = "txtNumDays";
+            this.txtNumDays.Size = new System.Drawing.Size(192, 20);
+            this.txtNumDays.TabIndex = 33;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label4.Location = new System.Drawing.Point(4, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(137, 15);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Treatment Length(days)";
             // 
             // cmbDescription
             // 
             this.cmbDescription.FormattingEnabled = true;
             this.cmbDescription.Items.AddRange(new object[] {
-            "Surical",
-            "Medicinal"});
-            this.cmbDescription.Location = new System.Drawing.Point(147, 20);
+            "Surgery",
+            "Medicine",
+            "Radiation"});
+            this.cmbDescription.Location = new System.Drawing.Point(147, 124);
             this.cmbDescription.Name = "cmbDescription";
             this.cmbDescription.Size = new System.Drawing.Size(192, 21);
             this.cmbDescription.TabIndex = 29;
-            // 
-            // txtPolicyID
-            // 
-            this.txtPolicyID.Location = new System.Drawing.Point(147, 125);
-            this.txtPolicyID.Name = "txtPolicyID";
-            this.txtPolicyID.Size = new System.Drawing.Size(192, 20);
-            this.txtPolicyID.TabIndex = 28;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label10.Location = new System.Drawing.Point(41, 130);
+            this.label10.Location = new System.Drawing.Point(466, 23);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 13);
+            this.label10.Size = new System.Drawing.Size(39, 15);
             this.label10.TabIndex = 27;
-            this.label10.Text = "Policy ID";
+            this.label10.Text = "Policy";
             this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // txtCost
@@ -173,7 +239,7 @@
             this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label6.Location = new System.Drawing.Point(39, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(79, 13);
+            this.label6.Size = new System.Drawing.Size(90, 15);
             this.label6.TabIndex = 25;
             this.label6.Text = "Treatment Cost";
             // 
@@ -182,9 +248,9 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label3.Location = new System.Drawing.Point(20, 23);
+            this.label3.Location = new System.Drawing.Point(20, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(111, 13);
+            this.label3.Size = new System.Drawing.Size(128, 15);
             this.label3.TabIndex = 21;
             this.label3.Text = "Treatment Description";
             // 
@@ -202,7 +268,7 @@
             this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label5.Location = new System.Drawing.Point(41, 57);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(86, 13);
+            this.label5.Size = new System.Drawing.Size(100, 15);
             this.label5.TabIndex = 23;
             this.label5.Text = "Treatment Name";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -214,7 +280,7 @@
             this.btnAddConditionTreatment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddConditionTreatment.ForeColor = System.Drawing.Color.White;
             this.btnAddConditionTreatment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddConditionTreatment.Location = new System.Drawing.Point(79, 313);
+            this.btnAddConditionTreatment.Location = new System.Drawing.Point(22, 312);
             this.btnAddConditionTreatment.Name = "btnAddConditionTreatment";
             this.btnAddConditionTreatment.Size = new System.Drawing.Size(157, 44);
             this.btnAddConditionTreatment.TabIndex = 31;
@@ -222,20 +288,54 @@
             this.btnAddConditionTreatment.UseVisualStyleBackColor = false;
             this.btnAddConditionTreatment.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button4
+            // btnSwitch
             // 
-            this.button4.BackColor = System.Drawing.Color.DodgerBlue;
-            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(562, 313);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(127, 23);
-            this.button4.TabIndex = 24;
-            this.button4.Text = "View Medical Conditions";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnSwitch.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnSwitch.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSwitch.ForeColor = System.Drawing.Color.White;
+            this.btnSwitch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSwitch.Location = new System.Drawing.Point(667, 312);
+            this.btnSwitch.Name = "btnSwitch";
+            this.btnSwitch.Size = new System.Drawing.Size(127, 24);
+            this.btnSwitch.TabIndex = 24;
+            this.btnSwitch.Text = "View Medical Conditions";
+            this.btnSwitch.UseVisualStyleBackColor = false;
+            this.btnSwitch.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(226, 312);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(300, 20);
+            this.txtSearch.TabIndex = 33;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.Color.White;
+            this.button7.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.button7.Location = new System.Drawing.Point(522, 310);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(103, 23);
+            this.button7.TabIndex = 34;
+            this.button7.Text = "Search by Name";
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // btnReset
+            // 
+            this.btnReset.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnReset.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReset.ForeColor = System.Drawing.Color.White;
+            this.btnReset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReset.Location = new System.Drawing.Point(810, 258);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(38, 36);
+            this.btnReset.TabIndex = 35;
+            this.btnReset.UseVisualStyleBackColor = false;
+            this.btnReset.Visible = false;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // grpMedicalConditions
             // 
@@ -245,19 +345,18 @@
             this.grpMedicalConditions.Controls.Add(this.txtConditionName);
             this.grpMedicalConditions.Controls.Add(this.label2);
             this.grpMedicalConditions.Controls.Add(this.label7);
-            this.grpMedicalConditions.Location = new System.Drawing.Point(79, 373);
+            this.grpMedicalConditions.Location = new System.Drawing.Point(32, 384);
             this.grpMedicalConditions.Margin = new System.Windows.Forms.Padding(2);
             this.grpMedicalConditions.Name = "grpMedicalConditions";
             this.grpMedicalConditions.Padding = new System.Windows.Forms.Padding(2);
-            this.grpMedicalConditions.Size = new System.Drawing.Size(418, 197);
-            this.grpMedicalConditions.TabIndex = 27;
+            this.grpMedicalConditions.Size = new System.Drawing.Size(457, 197);
+            this.grpMedicalConditions.TabIndex = 36;
             this.grpMedicalConditions.TabStop = false;
             this.grpMedicalConditions.Text = "Medical Condition Details";
-            this.grpMedicalConditions.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // txtMedicalCode
             // 
-            this.txtMedicalCode.Location = new System.Drawing.Point(146, 113);
+            this.txtMedicalCode.Location = new System.Drawing.Point(160, 112);
             this.txtMedicalCode.Name = "txtMedicalCode";
             this.txtMedicalCode.Size = new System.Drawing.Size(192, 20);
             this.txtMedicalCode.TabIndex = 28;
@@ -269,20 +368,20 @@
             this.label8.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label8.Location = new System.Drawing.Point(38, 115);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(72, 13);
+            this.label8.Size = new System.Drawing.Size(83, 15);
             this.label8.TabIndex = 27;
             this.label8.Text = "Medical Code";
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(146, 71);
+            this.txtDescription.Location = new System.Drawing.Point(160, 70);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(192, 20);
             this.txtDescription.TabIndex = 26;
             // 
             // txtConditionName
             // 
-            this.txtConditionName.Location = new System.Drawing.Point(146, 30);
+            this.txtConditionName.Location = new System.Drawing.Point(160, 29);
             this.txtConditionName.Name = "txtConditionName";
             this.txtConditionName.Size = new System.Drawing.Size(192, 20);
             this.txtConditionName.TabIndex = 22;
@@ -294,7 +393,7 @@
             this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label2.Location = new System.Drawing.Point(38, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 13);
+            this.label2.Size = new System.Drawing.Size(116, 15);
             this.label2.TabIndex = 25;
             this.label2.Text = "Medical Description";
             // 
@@ -305,27 +404,9 @@
             this.label7.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label7.Location = new System.Drawing.Point(16, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(122, 13);
+            this.label7.Size = new System.Drawing.Size(143, 15);
             this.label7.TabIndex = 23;
             this.label7.Text = "Medical Condition Name";
-            // 
-            // txtNumDays
-            // 
-            this.txtNumDays.Location = new System.Drawing.Point(522, 21);
-            this.txtNumDays.Name = "txtNumDays";
-            this.txtNumDays.Size = new System.Drawing.Size(192, 20);
-            this.txtNumDays.TabIndex = 33;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.White;
-            this.label4.ForeColor = System.Drawing.Color.DodgerBlue;
-            this.label4.Location = new System.Drawing.Point(392, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(119, 13);
-            this.label4.TabIndex = 32;
-            this.label4.Text = "Treatment Length(days)";
             // 
             // frmMedicalDepartment
             // 
@@ -334,13 +415,15 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1025, 592);
             this.Controls.Add(this.grpMedicalConditions);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.button7);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnAddConditionTreatment);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnSwitch);
             this.Controls.Add(this.grpTreatments);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.button1);
             this.Name = "frmMedicalDepartment";
             this.Text = "frmMedicalDepartment";
             this.Load += new System.EventHandler(this.frmMedicalDepartment_Load);
@@ -357,7 +440,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox grpTreatments;
@@ -367,18 +449,25 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtTreatmentName;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnSwitch;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbDescription;
+        private System.Windows.Forms.TextBox txtNumDays;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.ComboBox cmbPolicy;
+        private System.Windows.Forms.ComboBox cmbConditions;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbProvider;
+        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.GroupBox grpMedicalConditions;
+        private System.Windows.Forms.TextBox txtMedicalCode;
+        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtConditionName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPolicyID;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtMedicalCode;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox cmbDescription;
-        private System.Windows.Forms.TextBox txtNumDays;
-        private System.Windows.Forms.Label label4;
     }
 }

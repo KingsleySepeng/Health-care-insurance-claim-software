@@ -14,18 +14,18 @@ namespace WindowsFormsApp1
     {
         DataHandler dh = new ClientPolicyMaintenance();
         ClientPolicyMaintenance cp = new ClientPolicyMaintenance();
-        bool Pressed = false, familyPlan = false;
-        string ID, DepName, DepSname, DepRelation, Age;
+        bool Pressed = false, familyPlan = false, mainMembers = false;
+        string ID, DepName, DepSname, DepRelation, Age, newValue;
         float initialCost, totalCost;
+        string columnName, tID;
         public frmPolicy_Client_Maintenance()
         {
             InitializeComponent();
             int i = 1;
-            dataGridView1.DataSource = dh.Display("Policy_Holders");
+            dataGridView1.DataSource = dh.Display(cp.TableName);
             btnReset.Visible = false;
             ID = cp.createID();
             cmbPolicy.DataSource = dh.returnPolicies();
-            cmbPolicy.Text = "-- Select --";
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -51,8 +51,16 @@ namespace WindowsFormsApp1
         {
             if(txtSearch.Text != "")
             {
-                dataGridView1.DataSource = dh.Search("Policy_holders", txtSearch.Text, dataGridView1.Columns[0].Name);
-                btnReset.Visible = true;
+                if (mainMembers)
+                {
+                    dataGridView1.DataSource = dh.Search(cp.SubHolders, txtSearch.Text, dataGridView1.Columns[0].Name);
+                    btnReset.Visible = true;
+                }
+                else
+                {
+                    dataGridView1.DataSource = dh.Search(cp.TableName, txtSearch.Text, dataGridView1.Columns[0].Name);
+                    btnReset.Visible = true;
+                }
             }
             else
             {
@@ -80,7 +88,8 @@ namespace WindowsFormsApp1
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = dh.Display("Policy_Holders");
+            dataGridView1.DataSource = dh.Display(cp.TableName);
+            txtSearch.Clear();
             btnReset.Visible = false;
         }
 
@@ -91,11 +100,63 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            cp.Create("Sub_Holders", DepName, DepSname, DepRelation, Age, ID);
+            cp.Create(cp.SubHolders, DepName, DepSname, DepRelation, Age, ID);
             txtDepName.Clear();
             txtDepRelation.Clear();
             txtDepSurname.Clear();
             button2.Visible = true;
+        }
+
+        private void txtDepName_TextChanged(object sender, EventArgs e)
+        {
+            DepName = txtDepName.Text;
+        }
+
+        private void txtDepSurname_TextChanged(object sender, EventArgs e)
+        {
+            DepSname = txtDepSurname.Text;
+        }
+
+        private void txtDepRelation_TextChanged(object sender, EventArgs e)
+        {
+            DepRelation = txtDepRelation.Text;  
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (mainMembers)
+            {
+                cp.Update(cp.SubHolders, tID, columnName, newValue, mainMembers);
+            }
+            else
+            {
+                cp.Update(cp.TableName, tID, columnName, newValue, mainMembers);
+            }
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
+            if (mainMembers)
+            {
+                mainMembers = false;
+                btnSwitchTable.Text = "Show Dependencies";
+                dataGridView1.DataSource = cp.Display(cp.TableName);
+            }
+            else
+            {
+                mainMembers = true;
+                btnSwitchTable.Text = "Show main Holders";
+                dataGridView1.DataSource = cp.Display(cp.SubHolders);
+            }
+        }
+
+        private void dataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            tID = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            int indx = dataGridView1.CurrentCell.ColumnIndex;
+            columnName = dataGridView1.Columns[indx].Name;
+            newValue = dataGridView1.CurrentCell.Value.ToString();
         }
 
         private void txtAge_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,6 +169,7 @@ namespace WindowsFormsApp1
             {
                 totalCost += initialCost;
             }
+            Age = txtAge.Text;
             txtMontlyFee.Text = totalCost.ToString();
         }
 
@@ -120,32 +182,21 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (familyPlan)
-            {
-                cp.Create("Policy_Holders", ID, txtName.Text, txtSurname.Text, txtNumber.Text, txtAddress.Text, cmbPolicy.Text, Convert.ToSingle(txtMontlyFee.Text), familyPlan.ToString());
-                dataGridView1.DataSource = dh.Display("Policy_Holders");
-                txtAddress.Clear();
-                txtName.Clear();
-                txtNumber.Clear();
-                txtSurname.Clear();
-            }
-            else
-            {
-                cp.Create("Policy_Holders", ID, txtName.Text, txtSurname.Text, txtNumber.Text, txtAddress.Text, cmbPolicy.Text, Convert.ToSingle(txtMontlyFee.Text), familyPlan.ToString());
-                dataGridView1.DataSource = dh.Display("Policy_Holders");
-                txtAddress.Clear();
-                txtName.Clear();
-                txtNumber.Clear();
-                txtSurname.Clear();
-            }
+            cp.Create(cp.TableName, ID, txtName.Text, txtSurname.Text, txtNumber.Text, txtAddress.Text, cmbPolicy.Text, Convert.ToSingle(txtMontlyFee.Text), familyPlan.ToString(), txtEmail.Text);
+            dataGridView1.DataSource = dh.Display(cp.TableName);
+            txtAddress.Clear();
+            txtName.Clear();
+            txtNumber.Clear();
+            txtSurname.Clear();
+            txtEmail.Clear();
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cmbFamilyPlan.SelectedIndex == 0)
             {
-                grpDetails.Visible = false;
                 grpDependents.Visible = true;
+                grpDetails.Visible = false;
                 familyPlan = true;
             }
             else

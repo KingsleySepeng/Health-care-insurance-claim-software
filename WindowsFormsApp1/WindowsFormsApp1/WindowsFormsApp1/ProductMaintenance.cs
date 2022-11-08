@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
         float basicPolicyPrice = 1200;
         float middlePolicyPrice = 2500;
         float premiumPolicyPrice = 6000;
+        public string tableName = "tblPolicy";
 
         public float MiddlePolicyPrice { get => middlePolicyPrice; set => middlePolicyPrice = value; }
         public float BasicPolicyPrice { get => basicPolicyPrice; set => basicPolicyPrice = value; }
@@ -78,6 +79,21 @@ namespace WindowsFormsApp1
                 }
             }
             return finalCost;
+        }
+
+        public void Update(string tableName, string tID, string columnName, string newValue)
+        {
+            using (SqlConnection sqlCon = new SqlConnection(Conn))
+            {
+                SqlCommand sqlComm = new SqlCommand();
+                sqlComm.CommandType = CommandType.Text;
+                sqlComm.CommandText = "UPDATE " + tableName + " SET " + columnName + " = '" + newValue + "' WHERE Policy_Id = '" + tID + "'";
+                sqlComm.Connection = sqlCon;
+
+                sqlCon.Open();
+                sqlComm.ExecuteNonQuery();
+                sqlCon.Close();
+            }
         }
         /*
 
