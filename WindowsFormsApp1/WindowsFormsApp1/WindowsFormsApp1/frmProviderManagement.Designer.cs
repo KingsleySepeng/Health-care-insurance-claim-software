@@ -100,7 +100,7 @@
             this.label4.Location = new System.Drawing.Point(235, 17);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(501, 57);
+            this.label4.Size = new System.Drawing.Size(398, 45);
             this.label4.TabIndex = 44;
             this.label4.Text = "Provider Maintenance";
             // 
@@ -179,7 +179,7 @@
             this.label7.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label7.Location = new System.Drawing.Point(329, 54);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(51, 15);
+            this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 34;
             this.label7.Text = "Address";
             // 
@@ -190,7 +190,7 @@
             this.label8.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label8.Location = new System.Drawing.Point(329, 23);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(66, 15);
+            this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 32;
             this.label8.Text = "Telephone";
             // 
@@ -209,7 +209,7 @@
             this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label2.Location = new System.Drawing.Point(329, 91);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 15);
+            this.label2.Size = new System.Drawing.Size(78, 13);
             this.label2.TabIndex = 31;
             this.label2.Text = "Treatment type";
             // 
@@ -240,7 +240,7 @@
             this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label3.Location = new System.Drawing.Point(25, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 15);
+            this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 21;
             this.label3.Text = "Title";
             // 
@@ -251,7 +251,7 @@
             this.label1.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label1.Location = new System.Drawing.Point(25, 93);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 15);
+            this.label1.Size = new System.Drawing.Size(52, 13);
             this.label1.TabIndex = 28;
             this.label1.Text = "End Date";
             // 
@@ -262,7 +262,7 @@
             this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label6.Location = new System.Drawing.Point(25, 59);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 15);
+            this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 25;
             this.label6.Text = "Start Date";
             // 
@@ -341,6 +341,7 @@
             this.button7.TabIndex = 44;
             this.button7.Text = "Delete Provider";
             this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // frmProviderManagement
             // 

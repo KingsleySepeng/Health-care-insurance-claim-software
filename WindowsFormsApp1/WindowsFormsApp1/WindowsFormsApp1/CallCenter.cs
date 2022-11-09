@@ -43,7 +43,7 @@ namespace WindowsFormsApp1
             {
                 SqlCommand sqlComm = new SqlCommand();
                 sqlComm.CommandType = CommandType.Text;
-                sqlComm.CommandText = "INSERT INTO " + tableName + " (PolicyHolder_ID Treatment_ID, Policy_ID, Medical_Condition, ProviderID, Claim_Status, Claim_Date)  VALUES ('" + hID + "', '" + tID + "', '" + pID + "', '" + Medical_Condition + "', '" + prID + "', '" + claimStatus + "', '" + claimDate + "')";
+                sqlComm.CommandText = "INSERT INTO " + tableName + " (PolicyHolder_ID, Treatment_ID, Policy_Id, Medical_Condition, ProviderId, Claim_Status, Claim_Date)  VALUES ('" + hID + "', '" + tID + "', '" + pID + "', '" + Medical_Condition + "', '" + prID + "', '" + claimStatus + "', '" + claimDate + "')";
                 sqlComm.Connection = sqlCon;
 
                 sqlCon.Open();
@@ -169,6 +169,30 @@ namespace WindowsFormsApp1
             }
             providers.Distinct();
             return providers;
+        }
+
+        public string GetID(string tName)
+        {
+            string ID = "";
+            string query = "select Treatments_ID from Treatments where Treatment_Name = '" + tName + "'";
+
+            using (SqlConnection connection = new SqlConnection(Conn))
+            {
+                SqlCommand cmd = new SqlCommand();
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = query;
+                cmd.Connection = connection;
+
+                connection.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    ID = dr[0].ToString();
+                }
+                connection.Close();
+            }
+            return ID;
         }
     }
 }

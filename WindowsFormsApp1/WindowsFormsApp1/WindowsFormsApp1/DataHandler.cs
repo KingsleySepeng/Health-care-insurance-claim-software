@@ -16,7 +16,7 @@ namespace WindowsFormsApp1
 
         public DataHandler() { }
 
-        string conn = "Data Source=VISIONARY-VJAE\\SQLEXPRESS02;Initial Catalog=Ukupholisa_Healthcare_DB_v3;Integrated Security=True";
+        string conn = "Data Source=VISIONARY-VJAE\\SQLEXPRESS02;Initial Catalog=Ukupholisa_Healthcare_DB_v4.5;Integrated Security=True";
 
         public string Conn { get => conn; set => conn = value; }
 

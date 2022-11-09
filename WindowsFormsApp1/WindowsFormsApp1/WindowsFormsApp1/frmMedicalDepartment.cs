@@ -23,6 +23,7 @@ namespace WindowsFormsApp1
             cmbPolicy.DataSource = dh.returnPolicies();
             cmbProvider.DataSource = dh.returnProvider();
             cmbConditions.DataSource = dh.returnConditions();
+            cmbPolicy2.DataSource = dh.returnPolicies();
         }
 
         private void button3_Click(object sender, EventArgs e)

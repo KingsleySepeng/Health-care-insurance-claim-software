@@ -66,5 +66,17 @@ namespace WindowsFormsApp1
             }
         }
 
+        public void deletePM(string id)
+        {
+            SqlConnection sqlCon = new SqlConnection(Conn);
+            {
+                SqlCommand cmd = new SqlCommand("spDeletePM", sqlCon);
+                cmd.Parameters.AddWithValue("@PolicyHolder_ID", id);
+                sqlCon.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
     }
 }

@@ -95,6 +95,17 @@ namespace WindowsFormsApp1
                 sqlCon.Close();
             }
         }
+
+        public void deletePo(string id)
+        {
+            SqlConnection sqlCon = new SqlConnection(Conn);
+            {
+                SqlCommand cmd = new SqlCommand("spDeletePo", sqlCon);
+                cmd.Parameters.AddWithValue("@PolicyHolder_ID", id);
+                sqlCon.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
         /*
 
                 public override void delete()

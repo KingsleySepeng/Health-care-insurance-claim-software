@@ -58,6 +58,8 @@
             this.txtConditionName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.cmbPolicy2 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpTreatments.SuspendLayout();
             this.grpMedicalConditions.SuspendLayout();
@@ -94,7 +96,7 @@
             this.label1.Location = new System.Drawing.Point(53, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(723, 57);
+            this.label1.Size = new System.Drawing.Size(577, 45);
             this.label1.TabIndex = 22;
             this.label1.Text = "Ukupholisa Medical Department";
             // 
@@ -144,7 +146,7 @@
             this.label11.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label11.Location = new System.Drawing.Point(459, 92);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 15);
+            this.label11.Size = new System.Drawing.Size(51, 13);
             this.label11.TabIndex = 37;
             this.label11.Text = "Condition";
             // 
@@ -167,7 +169,7 @@
             this.label9.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label9.Location = new System.Drawing.Point(466, 60);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 15);
+            this.label9.Size = new System.Drawing.Size(46, 13);
             this.label9.TabIndex = 35;
             this.label9.Text = "Provider";
             // 
@@ -197,7 +199,7 @@
             this.label4.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label4.Location = new System.Drawing.Point(4, 21);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 15);
+            this.label4.Size = new System.Drawing.Size(119, 13);
             this.label4.TabIndex = 32;
             this.label4.Text = "Treatment Length(days)";
             // 
@@ -220,7 +222,7 @@
             this.label10.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label10.Location = new System.Drawing.Point(466, 23);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 15);
+            this.label10.Size = new System.Drawing.Size(35, 13);
             this.label10.TabIndex = 27;
             this.label10.Text = "Policy";
             this.label10.Click += new System.EventHandler(this.label10_Click);
@@ -239,7 +241,7 @@
             this.label6.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label6.Location = new System.Drawing.Point(39, 89);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 15);
+            this.label6.Size = new System.Drawing.Size(79, 13);
             this.label6.TabIndex = 25;
             this.label6.Text = "Treatment Cost";
             // 
@@ -250,7 +252,7 @@
             this.label3.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label3.Location = new System.Drawing.Point(20, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(128, 15);
+            this.label3.Size = new System.Drawing.Size(111, 13);
             this.label3.TabIndex = 21;
             this.label3.Text = "Treatment Description";
             // 
@@ -268,7 +270,7 @@
             this.label5.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label5.Location = new System.Drawing.Point(41, 57);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 15);
+            this.label5.Size = new System.Drawing.Size(86, 13);
             this.label5.TabIndex = 23;
             this.label5.Text = "Treatment Name";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -339,6 +341,8 @@
             // 
             // grpMedicalConditions
             // 
+            this.grpMedicalConditions.Controls.Add(this.cmbPolicy2);
+            this.grpMedicalConditions.Controls.Add(this.label12);
             this.grpMedicalConditions.Controls.Add(this.txtMedicalCode);
             this.grpMedicalConditions.Controls.Add(this.label8);
             this.grpMedicalConditions.Controls.Add(this.txtDescription);
@@ -368,7 +372,7 @@
             this.label8.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label8.Location = new System.Drawing.Point(38, 115);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(83, 15);
+            this.label8.Size = new System.Drawing.Size(72, 13);
             this.label8.TabIndex = 27;
             this.label8.Text = "Medical Code";
             // 
@@ -393,7 +397,7 @@
             this.label2.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label2.Location = new System.Drawing.Point(38, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 15);
+            this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 25;
             this.label2.Text = "Medical Description";
             // 
@@ -404,9 +408,32 @@
             this.label7.ForeColor = System.Drawing.Color.DodgerBlue;
             this.label7.Location = new System.Drawing.Point(16, 36);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 15);
+            this.label7.Size = new System.Drawing.Size(122, 13);
             this.label7.TabIndex = 23;
             this.label7.Text = "Medical Condition Name";
+            // 
+            // cmbPolicy2
+            // 
+            this.cmbPolicy2.FormattingEnabled = true;
+            this.cmbPolicy2.Items.AddRange(new object[] {
+            "Surgery",
+            "Medicine",
+            "Radiation"});
+            this.cmbPolicy2.Location = new System.Drawing.Point(160, 151);
+            this.cmbPolicy2.Name = "cmbPolicy2";
+            this.cmbPolicy2.Size = new System.Drawing.Size(192, 21);
+            this.cmbPolicy2.TabIndex = 36;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.White;
+            this.label12.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.label12.Location = new System.Drawing.Point(83, 154);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(35, 13);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "Policy";
             // 
             // frmMedicalDepartment
             // 
@@ -469,5 +496,7 @@
         private System.Windows.Forms.TextBox txtConditionName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox cmbPolicy2;
+        private System.Windows.Forms.Label label12;
     }
 }

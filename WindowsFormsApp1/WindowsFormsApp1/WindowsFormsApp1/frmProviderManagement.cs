@@ -88,6 +88,11 @@ namespace WindowsFormsApp1
             MessageBox.Show(timeLeft + " days left until contract runs out");
         }
 
+        private void button7_Click(object sender, EventArgs e)
+        {
+            pr.deletePM(txtSearch.Text);
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             pr.Create(pr.TableName, txtName.Text, txtTelephone.Text, txtAddress.Text, comboBox1.Text, txtStartDate.Text, txtEndDate.Text);

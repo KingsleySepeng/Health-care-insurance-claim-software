@@ -79,7 +79,7 @@ namespace WindowsFormsApp1
         {
             if (txtSearch.Text != "")
             {
-                dataGridView1.DataSource = dh.Search(callcenter.TableName, txtSearch.Text, dataGridView1.Columns[2].Name);
+                dataGridView1.DataSource = dh.Search(callcenter.TableName, txtSearch.Text, dataGridView1.Columns[1].Name);
                 btnReset.Visible = true;
             }
             else
@@ -99,7 +99,8 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            
+            callcenter.Create(callcenter.TableName, clientID, callcenter.GetID(cmbTreatments.Text), PolicyID, cmbCondition.Text, cmbProviders.Text, claimStatus, DateTime.Now.ToString());
+            dataGridView1.DataSource = callcenter.Display(callcenter.TableName);
         }
 
         private void cmbCondition_SelectedIndexChanged(object sender, EventArgs e)

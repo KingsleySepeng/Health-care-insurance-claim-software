@@ -72,6 +72,7 @@ namespace WindowsFormsApp1
 
         private void button4_Click(object sender, EventArgs e)
         {
+            button3.Enabled = true;
             if (txtSearch.Text != "")
             {
                 dataGridView1.DataSource = dh.Search("tblPolicy", txtSearch.Text, dataGridView1.Columns[0].Name);
@@ -118,6 +119,11 @@ namespace WindowsFormsApp1
             int indx = dataGridView1.CurrentCell.ColumnIndex;
             columnName = dataGridView1.Columns[indx].Name;
             newValue = dataGridView1.CurrentCell.Value.ToString();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            pr.deletePo(txtSearch.Text);
         }
 
         private void cmbCareLevel_SelectedIndexChanged(object sender, EventArgs e)
